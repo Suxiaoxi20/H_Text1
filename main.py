@@ -36,7 +36,7 @@ def get_count():
   return delta.days
 
 def get_birthday():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday)
+  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return "距离小宝贝的生日还有"+str((next - today).days)+"天"
@@ -57,7 +57,6 @@ def get_shi():
   return shi.json()['data']['content']
 
 
- 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
