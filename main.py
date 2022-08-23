@@ -35,17 +35,12 @@ def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
   return delta.days
 
-def get_birthday1():
+def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday1, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return "距离小宝贝的生日还有"+str((next - today).days)+"天"
  
-def get_birthday2():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday2, "%Y-%m-%d")
-  if next < datetime.now():
-    next = next.replace(year=next.year + 1)
-  return "距离大宝贝的生日还有"+str((next - today).days)+"天"
 
 
 def get_words():
@@ -76,9 +71,9 @@ data = {"t_today":{"value":t_today,"color":get_random_color()},
         "city":{"value":city,"color":get_random_color()},
         "temperature":{"value":temperature,"color":get_random_color()},
         "love_days":{"value":get_count(),"color":get_random_color()},
-        "birthday1_left":{"value":get_birthday1(),"color":get_random_color()},
+        "birthday_left":{"value":get_birthday1(),"color":get_random_color()},
         "words":{"value":get_words(), "color":get_random_color()},
         "shi":{"value":get_shi(), "color":get_random_color()},
-        "birthday2_left":{"value":get_birthday2(),"color":get_random_color()}}
+      
 res = wm.send_template(user_id, template_id, data)
 print(res)
