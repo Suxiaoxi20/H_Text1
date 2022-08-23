@@ -57,6 +57,7 @@ def get_shi():
   return shi.json()['data']['content']
 
 
+ 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
